@@ -1,6 +1,8 @@
 <h1>Spending Tracker</h1>
 <hr>
-<% for student in @students %>
-<p>Merchant: <%= merchant.name %></p>
+<% for person in @merchant %>
+<p>Retailer: <%= person.name.capitalize %></p>
+<p>Tags: <%= person.tag %></p>
+<p>Amount: <%= person.transaction %></p>
 <hr>
 <% end %>

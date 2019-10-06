@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('transaction')
 
 class Merchant
 
@@ -28,6 +29,12 @@ class Merchant
     values = [@id]
     result = SqlRunner.run(sql, values)
     return result.map { |hash| Tag.new(hash) }
+  end
+
+  def transaction()
+    sql = "SELECT amount FROM transactions WHERE merchant_id = $1"
+    values = [@id]
+    return SqlRunner.run(sql,values).first['amount'].to_i
   end
 
 
