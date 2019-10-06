@@ -10,3 +10,7 @@ get '/home' do
   @merchant = Merchant.all()
   erb(:home)
 end
+
+get '/home/new-retailer' do
+  erb(:newretailer)
+end
