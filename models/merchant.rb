@@ -19,6 +19,12 @@ class Merchant
     @id = result.first['id'].to_i
   end
 
+  def self.all()
+    sql = 'SELECT * FROM merchants'
+    results = SqlRunner.run(sql)
+    return results.map {|hash| Merchant.new(hash)}
+  end
+
   def self.delete_all
     sql = "DELETE FROM merchants"
     SqlRunner.run(sql)

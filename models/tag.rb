@@ -19,6 +19,12 @@ class Tag
     @id = result.first['id'].to_i
   end
 
+  def self.all()
+    sql = 'SELECT * FROM tags'
+    results = SqlRunner.run(sql)
+    return results.map {|hash| Tag.new(hash)}
+  end
+
   def self.delete_all
     sql = "DELETE FROM tags"
     SqlRunner.run(sql)
