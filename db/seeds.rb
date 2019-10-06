@@ -6,5 +6,8 @@ require("pry")
 merchant1 = Merchant.new({'name' => 'tescos'})
 merchant1.save()
 
+tag1 = Tag.new({'type' => 'groceries'})
+tag1.save()
+
 pry.binding
 nil
