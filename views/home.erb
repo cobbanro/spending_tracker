@@ -1,11 +1,10 @@
 <h1>Spending Tracker</h1>
 <hr>
-<% for person in @merchant %>
-<p>Retailer: <%= person.name.capitalize %></p>
-<p>Tags: <%= person.tag.first.type %></p>
-<p>Amount: <%= person.transaction %></p>
-<hr>
+<% for merchant in @merchants %>
+  <p>Retailer: <%= merchant.name.capitalize %></p>
+  <p>Tags: <%= merchant.tag.first.type %></p>
+  <p>Amount: <%= merchant.transaction %></p>
+  <hr>
 <% end %>
-<button type="button" name="new"><a href="/home/new-retailer">New Retailer</a></li></button>
-
-<p>  <%= p @merchant_list %> </p>
+<button type="button" name="new"><a href="/home/new-retailer">New Retailer</a></button>
+<button type="button" name="new"><a href="/home/new-tag">New Tag</a></button>
