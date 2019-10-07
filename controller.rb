@@ -42,5 +42,6 @@ get '/home/new-transaction' do
 end
 
 post '/home/:id/delete' do
-  Transaction.delete(params[:id])
+  Transaction.delete()
+  redirect to('/home')
 end
