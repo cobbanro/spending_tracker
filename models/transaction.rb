@@ -44,11 +44,9 @@ class Transaction
   def self.total
     sql = 'SELECT amount FROM transactions'
     results = SqlRunner.run(sql)
-    result = results.map {|hash| Transaction.new(hash)}
+    array = results.map {|hash| Transaction.new(hash)}
     amount = 0
-    for i in result
-      amount += i.amount
-    end
+    array.each{|turtle| amount += turtle.amount}
     return amount
   end
 end

@@ -2,10 +2,15 @@
 <hr>
 <% for merchant in @merchants %>
   <p>Retailer: <%= merchant.name.capitalize %></p>
-  <p>Tags: <%= merchant.tag.first.type %></p>
-  <p>Amount: $<%= merchant.transaction %></p>
+  <p>Tags: <%= merchant.tag.first.type %> <button type="button" name="new"><a href="/home/:id/delete">Delete</a></button></p>
+  <p>Amount: $<%= merchant.transaction %> <button type="button" name="new"><a href="/home/:id/edit">Edit</a></button></p></p>
   <hr>
 <% end %>
+
+<% for tag in @tags %>
+  <p>Tag: <%= tag.type.capitalize %></p>
+<% end %>
+
 <p>Total Spent: $<%= @total %></p>
 <button type="button" name="new"><a href="/home/new-retailer">New Retailer</a></button>
 <button type="button" name="new"><a href="/home/new-tag">New Tag</a></button>
