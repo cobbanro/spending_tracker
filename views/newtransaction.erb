@@ -1,0 +1,18 @@
+<form action="/home" method="post">
+  <label for="amount">Amount: </label>
+  <input type="text" name="amount" id="amount">
+  <label for="name">Retailer: </label>
+    <select name="name" id="name">
+      <option option selected disabled >Select Retailer</option>
+      <%for merchant in @merchantlist  %>
+      <option value=<%= merchant.name %>><%= merchant.name %></option>
+      <%end %>
+    </select>
+    <select name="type" id="type">
+      <option option selected disabled >Select Tag</option>
+      <% for tag in @tags %>
+      <option value=<%= tag.type %>><%= tag.type %></option>
+      <%end %>
+    </select>
+    <input type="submit" value="Submit">
+</form>

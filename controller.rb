@@ -10,6 +10,7 @@ also_reload('./models/*')
 
 get '/home' do
   @merchants = Merchant.all()
+  @total = Transaction.total()
   erb(:home)
 end
 
@@ -31,4 +32,10 @@ post '/home' do
   tag = Tag.new(params)
   tag.save()
   redirect to('/home')
+end
+
+get '/home/new-transaction' do
+  @merchantlist = MerchantList.all()
+  @tags = Tag.all()
+  erb(:newtransaction)
 end

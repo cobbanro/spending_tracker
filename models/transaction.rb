@@ -41,4 +41,14 @@ class Transaction
     SqlRunner.run(sql)
   end
 
+  def self.total
+    sql = 'SELECT amount FROM transactions'
+    results = SqlRunner.run(sql)
+    result = results.map {|hash| Transaction.new(hash)}
+    amount = 0
+    for i in result
+      amount += i.amount
+    end
+    return amount
+  end
 end

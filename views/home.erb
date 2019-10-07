@@ -3,8 +3,10 @@
 <% for merchant in @merchants %>
   <p>Retailer: <%= merchant.name.capitalize %></p>
   <p>Tags: <%= merchant.tag.first.type %></p>
-  <p>Amount: <%= merchant.transaction %></p>
+  <p>Amount: $<%= merchant.transaction %></p>
   <hr>
 <% end %>
+<p>Total Spent: $<%= @total %></p>
 <button type="button" name="new"><a href="/home/new-retailer">New Retailer</a></button>
 <button type="button" name="new"><a href="/home/new-tag">New Tag</a></button>
+<button type="button" name="new"><a href="/home/new-transaction">New Transaction</a></button>
