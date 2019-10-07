@@ -44,16 +44,11 @@ class Merchant
     return results.map {|hash| Merchant.new(hash)}
   end
 
-  def self.delete_all
+  def self.delete_all()
     sql = "DELETE FROM merchants"
     SqlRunner.run(sql)
   end
 
-  def self.destroy(id)
-    sql = "DELETE FROM merchants
-    WHERE id = $1"
-    values = [id]
-    SqlRunner.run( sql, values )
-  end
+
 
 end

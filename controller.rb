@@ -42,5 +42,5 @@ get '/home/new-transaction' do
 end
 
 post '/home/:id/delete' do
-  Merchant.delete(params[:id])
+  Transaction.delete(params[:id])
 end
