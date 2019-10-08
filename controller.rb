@@ -46,6 +46,11 @@ post '/transaction' do
   redirect to('/home')
 end
 
+get '/home/:id/edit'
+  transaction = Transaction.find(params['id'])
+  transaction.update()
+  erb(:updatetransaction)
+
 post '/home/:id/delete' do
   transaction = Transaction.find(params['id']) #needs find method in model.
   transaction.delete()
