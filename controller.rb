@@ -46,13 +46,25 @@ post '/transaction' do
   redirect to('/home')
 end
 
-get '/home/:id/edit'
+get '/home/:id/edit' do
+  @transaction = Transaction.find(params['id'])
+  @tags = Tag.all()
+  @merchant = Merchant.all()
+  erb(:updatetransaction)
+end
+
+post '/home/:id' do
   transaction = Transaction.find(params['id'])
   transaction.update()
-  erb(:updatetransaction)
+  redirect to('/home')
+end
 
 post '/home/:id/delete' do
   transaction = Transaction.find(params['id']) #needs find method in model.
   transaction.delete()
   redirect to('/home')
+end
+
+get 'home/budget' do
+
 end

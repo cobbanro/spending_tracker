@@ -4,18 +4,16 @@
   <p>Retailer: <%= transaction.merchant.name.capitalize %></p>
   <p>Tag: <%= transaction.tag.type %></p>
   <p>Amount: $<%= transaction.amount %></p>
-  <button type="button" name="new"><a href="/home/:id/edit">Edit</a></button>
+  <button type="button" name="new"><a href="/home/<%=transaction.id %>/edit">Edit</a></button>
   <form action="/home/<%=transaction.id %>/delete" method="post">
   <input type="submit" value="Delete">
   </form>
   <hr>
 <% end %>
 
-<% for tag in @tags %>
-  <p>Tag: <%= tag.type.capitalize %></p>
-<% end %>
-
 <p>Total Spent: $<%= @total %></p>
 <button type="button" name="new"><a href="/home/new-retailer">New Retailer</a></button>
 <button type="button" name="new"><a href="/home/new-tag">New Tag</a></button>
 <button type="button" name="new"><a href="/home/new-transaction">New Transaction</a></button>
+<br>
+<button type="button" name="new"><a href="/home/budget">Add Budget</a></button>

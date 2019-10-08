@@ -1,0 +1,20 @@
+<form action="/home/<%=@transaction.id %>" method="post">
+  <label for="amount">Amount:</label>
+  <input type="text" name="amount" id="amount" value="<%= @transaction.amount %>"/>
+
+  <label for="merchant">Retailer:</label>
+  <select name="merchant_id" id="name">
+    <option option selected disabled >Select Retailer</option>
+    <% for merchant in @merchant%>
+    <option value=<%= merchant.id %>><%= merchant.name %></option>
+    <% end %>
+  </select>
+
+  <select name="tag_id" id="type">
+    <% for tag in @tags %>
+    <option value=<%= tag.type %> <% if tag.id == tag.type  %></option>
+    <% end %>
+    <% for tag in @tags %>
+    <option value=<%= tag.id %>><%= tag.type %></option>
+    <%end %>
+  </select>
