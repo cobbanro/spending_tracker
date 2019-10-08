@@ -1,9 +1,13 @@
 <h1>Spending Tracker</h1>
 <hr>
-<% for merchant in @merchants %>
-  <p>Retailer: <%= merchant.name.capitalize %></p>
-  <p>Tags: <%= merchant.tag.first.type %> <button type="button" name="new"><a href="/home/:id/delete">Delete</a></button></p>
-  <p>Amount: $<%= merchant.transaction %> <button type="button" name="new"><a href="/home/:id/edit">Edit</a></button></p></p>
+<% for transaction in @transactions %>
+  <p>Retailer: <%= transaction.merchant.name.capitalize %></p>
+  <p>Tag: <%= transaction.tag.type %></p>
+  <p>Amount: $<%= transaction.amount %></p>
+  <button type="button" name="new"><a href="/home/:id/edit">Edit</a></button>
+  <form action="/home/<%=transaction.id %>/delete" method="post">
+  <input type="submit" value="Delete">
+  </form>
   <hr>
 <% end %>
 

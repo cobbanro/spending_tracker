@@ -19,8 +19,3 @@ CREATE TABLE transactions(
   merchant_id INT8 REFERENCES merchants(id),
   tag_id INT8 REFERENCES tags(id)
 );
-
-CREATE TABLE merchantlist(
-  id SERIAL8 PRIMARY KEY,
-  name VARCHAR(2550)
-);

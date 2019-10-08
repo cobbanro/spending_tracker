@@ -30,11 +30,31 @@ class Transaction
     @id = results.first()['id'].to_i
   end
 
+  def merchant()
+    sql = "SELECT * FROM merchants WHERE id = $1"
+    values = [@merchant_id]
+    merchant_hash = SqlRunner.run(sql, values).first
+    return Merchant.new(merchant_hash)
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags WHERE id = $1"
+    values = [@tag_id]
+    tag_hash = SqlRunner.run(sql, values).first
+    return Tag.new(tag_hash)
+  end
+
   def delete()
     sql = "DELETE FROM transactions
     WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, values )
+  end
+
+  def self.find(id_to_find)
+    sql = "SELECT * FROM transactions WHERE id = $1;"
+    values = [id_to_find]
+    return Transaction.new(SqlRunner.run(sql,values).first)
   end
 
   def self.all()
