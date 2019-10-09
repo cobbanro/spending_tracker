@@ -1,0 +1,9 @@
+<% for merchant in @merchants %>
+<p><%= merchant.name %></p>
+<button type="button" name="edit"><a href="/merchants/update">Edit</a></button>
+<form action="/merchants/<%=merchant.id %>/delete" method="post">
+<input type="submit" value="Delete">
+<% end %>
+<button type="button" name="new"><a href="/merchants/new">New</a></button>
+</form>
+<button type="button" name="back"><a href="/transactions/index">Transactions</a></button>

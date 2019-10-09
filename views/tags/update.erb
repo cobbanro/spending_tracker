@@ -1,0 +1,5 @@
+<form action="/tags/<%=@tag.id %>" method="post">
+  <label for="type">Tag:</label>
+  <input type="text" name="type" id="type" value="<%= @tag.name %>"/>
+  <input type='submit' value="Submit">
+</form>
