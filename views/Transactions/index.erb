@@ -4,8 +4,8 @@
   <p>Retailer: <%= transaction.merchant.name.capitalize %></p>
   <p>Tag: <%= transaction.tag.type %></p>
   <p>Amount: $<%= transaction.amount %></p>
-  <button type="button" name="new"><a href="/home/<%=transaction.id %>/edit">Edit</a></button>
-  <form action="/home/<%=transaction.id %>/delete" method="post">
+  <button type="button" name="new"><a href="/transactions/<%=transaction.id %>/edit">Edit</a></button>
+  <form action="/transactions/<%=transaction.id %>/delete" method="post">
   <input type="submit" value="Delete">
   </form>
   <hr>
@@ -14,6 +14,6 @@
 <p>Total Spent: $<%= @total %></p>
 <button type="button" name="new"><a href="/merchants/index">Retailers</a></button>
 <button type="button" name="new"><a href="/tags/new">New Tag</a></button>
-<button type="button" name="new"><a href="/home/new-transaction">New Transaction</a></button>
+<button type="button" name="new"><a href="/transactions/new">New Transaction</a></button>
 <br>
-<button type="button" name="new"><a href="/home/budget">Add Budget</a></button>
+<button type="button" name="new"><a href="/transactions/budget">Add Budget</a></button>

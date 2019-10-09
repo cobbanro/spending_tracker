@@ -8,36 +8,36 @@ get '/transactions' do
   @transactions = Transaction.all()
   @total = Transaction.total()
   @tags = Tag.all()
-  erb(:home)
+  erb(:"transactions/index")
 end
 
 get '/transactions/new' do
   @tags = Tag.all()
   @merchant = Merchant.all()
-  erb(:transactions)
+  erb(:"transactions/new")
 end
 
 post '/transactions' do
   transaction = Transaction.new(params)
   transaction.save()
-  redirect to('/home')
+  redirect to('/transactions/index')
 end
 
 get '/transactions/:id/edit' do
   @transaction = Transaction.find(params['id'])
   @tags = Tag.all()
   @merchants = Merchant.all()
-  erb(:updatetransaction)
+  erb(:"transactions/update")
 end
 
 post '/transactions/:id' do
   transaction = Transaction.new(params)
   transaction.update()
-  redirect to('/transactions')
+  redirect to('/transactions/index')
 end
 
 post '/transactions/:id/delete' do
   transaction = Transaction.find(params['id'])
   transaction.delete()
-  redirect to('/home')
+  redirect to('/transactions/index')
 end
