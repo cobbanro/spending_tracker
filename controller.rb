@@ -1,6 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require('pry')
+require_relative("./controllers/tag_controller")
 require_relative('./models/merchant')
 require_relative('./models/tag')
 require_relative('./models/transaction')
@@ -24,20 +25,10 @@ post '/merchant' do
   redirect to('/home')
 end
 
-get '/home/new-tag' do
-  erb(:newtag)
-end
-
-post '/tag' do
-  tag5 = Tag.new(params)
-  tag5.save()
-  redirect to('/home')
-end
-
 get '/home/new-transaction' do
   @tags = Tag.all()
   @merchant = Merchant.all()
-  erb(:newtransaction)
+  erb(:ntransaction)
 end
 
 post '/transaction' do
@@ -49,12 +40,12 @@ end
 get '/home/:id/edit' do
   @transaction = Transaction.find(params['id'])
   @tags = Tag.all()
-  @merchant = Merchant.all()
+  @merchants = Merchant.all()
   erb(:updatetransaction)
 end
 
 post '/home/:id' do
-  transaction = Transaction.find(params['id'])
+  transaction = Transaction.new(params)
   transaction.update()
   redirect to('/home')
 end

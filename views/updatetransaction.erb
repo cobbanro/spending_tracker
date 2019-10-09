@@ -4,17 +4,19 @@
 
   <label for="merchant">Retailer:</label>
   <select name="merchant_id" id="name">
-    <option option selected disabled >Select Retailer</option>
-    <% for merchant in @merchant%>
-    <option value=<%= merchant.id %>><%= merchant.name %></option>
+    <% for merchant in @merchants%>
+      <% if merchant.id == @transaction.merchant.id %>
+      <option value=<%= merchant.id %> selected ><%= merchant.name %></option>
+      <% else %>
+      <option value=<%= merchant.id %> ><%= merchant.name %></option>
+      <% end %>
     <% end %>
   </select>
 
   <select name="tag_id" id="type">
     <% for tag in @tags %>
-    <option value=<%= tag.type %> <% if tag.id == tag.type  %></option>
-    <% end %>
-    <% for tag in @tags %>
-    <option value=<%= tag.id %>><%= tag.type %></option>
+      <option value=<%= tag.id %>><%= tag.type %></option>
     <%end %>
+    <input type='submit' value="Submit">
   </select>
+</form>

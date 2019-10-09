@@ -9,8 +9,8 @@ class Budget
     @total = total
   end
 
-  def adjust_budget(transaction_amount)
-    @total -= transaction.amount
+  def adjust_budget()
+    @total -= Transaction.total
   end
 
 
