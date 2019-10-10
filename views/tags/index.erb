@@ -1,6 +1,6 @@
 <% for tag in @tags %>
 <p><%= tag.type %></p>
-<button type="button" name="edit"><a href="/tags/update">Edit</a></button>
+<button type="button" name="edit"><a href="/tags/<%=tag.id %>/edit">Edit</a></button>
 <form action="/tags/<%=tag.id %>/delete" method="post">
 <input type="submit" value="Delete">
 <% end %>

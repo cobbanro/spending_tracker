@@ -4,7 +4,7 @@ require('pry')
 require_relative("../models/transaction.rb")
 also_reload('../models/*')
 
-get '/transactions' do
+get '/transactions/index' do
   @transactions = Transaction.all()
   @total = Transaction.total()
   @tags = Tag.all()
@@ -17,7 +17,7 @@ get '/transactions/new' do
   erb(:"transactions/new")
 end
 
-post '/transactions' do
+post '/transactions/index' do
   transaction = Transaction.new(params)
   transaction.save()
   redirect to('/transactions/index')

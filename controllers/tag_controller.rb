@@ -17,7 +17,7 @@ end
 post '/tags' do
   tag = Tag.new(params)
   tag.save()
-  redirect to('/tag/index')
+  redirect to('/tags')
 end
 
 get '/tags/:id/edit' do
@@ -28,11 +28,11 @@ end
 post '/tags/:id' do
   tag = Tag.new(params)
   tag.update()
-  redirect to('/tag/index')
+  redirect to('/tags')
 end
 
 post '/tags/:id/delete' do
   tag = Tag.find(params['id'])
   tag.delete()
-  redirect to('/tag/index')
+  redirect to('/tags')
 end

@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" type="text/css" href="/forms.css">
+    <link rel="stylesheet" href="/forms.css">
     <meta charset="utf-8">
     <title>Spending Tracker</title>
   </head>
   <body>
+    <nav>
+      <a href="/transactions/index">All transactions</a>
+      <a href="/transactions/new">New transaction</a>
+      <a href="/merchants">Retailers</a>
+      <a href="/tags">Tags</a>
+    </nav>
     <%= yield %>
   </body>
 </html>

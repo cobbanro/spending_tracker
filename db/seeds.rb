@@ -1,7 +1,6 @@
 require_relative("../models/merchant")
 require_relative("../models/tag")
 require_relative("../models/transaction")
-require_relative("../models/merchant_list")
 require("pry")
 
 Transaction.delete_all
@@ -25,5 +24,5 @@ transaction2 = Transaction.new({'amount' => 20, 'merchant_id' => merchant2.id, '
 transaction1.save
 transaction2.save
 
-pry.binding
+binding.pry
 nil

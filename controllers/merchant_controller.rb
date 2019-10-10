@@ -11,28 +11,28 @@ end
 
 get '/merchants/new' do
   @merchant = Merchant.all()
-  erb(:newretailer)
+  erb(:"merchants/new")
 end
 
 post '/merchants' do
   merchant = Merchant.new(params)
   merchant.save()
-  redirect to('/merchant/index')
+  redirect to('/merchants')
 end
 
 get '/merchants/:id/edit' do
   @merchant = Merchant.find(params['id'])
-  erb(:"merchant/update")
+  erb(:"merchants/update")
 end
 
 post '/merchants/:id' do
   merchant = Merchant.new(params)
   merchant.update()
-  redirect to('/merchants/index')
+  redirect to('/merchants')
 end
 
 post '/merchants/:id/delete' do
   merchant = Merchant.find(params['id'])
   merchant.delete()
-  redirect to('/merchants/index')
+  redirect to('/merchants')
 end
