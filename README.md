@@ -1,7 +1,7 @@
 Spending Tracker
-Build an app that allows a user to track their spending.
 
-MVP
+
+MVP:
 
 The app should allow the user to create, edit and delete merchants, e.g. Tesco, Amazon, ScotRail
 
