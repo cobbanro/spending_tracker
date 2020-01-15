@@ -1,4 +1,16 @@
 body {
-  color: salmon;
-  background-color: dodgerblue;
+  color: white;
+  background-color: black;
+}
+
+title{
+  margin-left: center;
+}
+
+.nav {
+  color: white;
+  text-decoration: none;
+  padding: 8.5%;
+  text-align:
+
 }

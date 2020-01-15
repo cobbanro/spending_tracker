@@ -9,8 +9,10 @@ Tag.delete_all
 
 merchant1 = Merchant.new({'name' => 'tescos'})
 merchant2 = Merchant.new({'name' => 'asda'})
+merchant3 = Merchant.new({'name' => 'boots'})
 merchant1.save
 merchant2.save
+merchant3.save
 
 
 
@@ -21,8 +23,10 @@ tag2.save
 
 transaction1 = Transaction.new({'amount' => 10, 'merchant_id' => merchant1.id, 'tag_id' => tag1.id})
 transaction2 = Transaction.new({'amount' => 20, 'merchant_id' => merchant2.id, 'tag_id' => tag1.id})
+transaction2 = Transaction.new({'amount' => 14, 'merchant_id' => merchant3.id, 'tag_id' => tag2.id})
 transaction1.save
 transaction2.save
+transaction3.save
 
 binding.pry
 nil
